@@ -16,6 +16,7 @@ function SingleProduct()
 
     return (
         <>
+            <h3>Product Detail</h3>
             <p>{product.title}</p>
             <br/>
             <p><img src={product.thumbnail} /></p>
