@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getAllCartData, saveCartData } from "./cartAPI";
-import { selectLoggedUser } from "../auth/authSlice";
+import { getAllCartData, saveCartData, removeCartProduct, updateCartQuanity } from "./cartAPI";
 
 const initialState = {
     items : [],
@@ -24,6 +23,22 @@ export const getAllCartDataAsync = createAsyncThunk(
     }
 )
 
+export const removeCartProductAsync = createAsyncThunk(
+    'cart/removeCartProduct',
+    async (id) => {
+        const response = await removeCartProduct(id)
+        return response.data
+    }
+)
+
+export const updateCartQuanityAsync = createAsyncThunk(
+    'cart/updateCartQuanity',
+    async (item) => {
+        const response = await updateCartQuanity(item)
+        return response.data[0]
+    }
+)
+
 export const cartSlice = createSlice({
     name : 'cart',
     initialState,
@@ -42,6 +57,22 @@ export const cartSlice = createSlice({
         .addCase(getAllCartDataAsync.fulfilled, (state, action) => {
             state.status = 'success'
             state.products = action.payload
+        })
+        .addCase(removeCartProductAsync.pending, (state) => {
+            state.status = 'Pending'
+        })
+        .addCase(removeCartProductAsync.fulfilled, (state, action) => {
+            state.status = 'success'
+            const index = state.products.findIndex(item=> item.id === action.payload.id)
+            state.products.splice(index, 1)
+        })
+        .addCase(updateCartQuanityAsync.pending, (state) => {
+            state.status = 'Pending'
+        })
+        .addCase(updateCartQuanityAsync.fulfilled, (state, action) => {
+            state.status = 'success'
+            const index = state.products.findIndex(item=> item.id === action.payload.id)
+            state.products[index] = action.payload
         })
     }
 })

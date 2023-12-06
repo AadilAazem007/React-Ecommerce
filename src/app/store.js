@@ -5,6 +5,7 @@ import categoryReducer from '../features/category/categorySlice'
 import brandReducer from '../features/brand/brandSlice'
 import CartReducer from '../features/cart/cartSlice'
 import AuthReducer from '../features/auth/authSlice'
+import CheckoutReducer from '../features/checkout/checkOutSlice'
 
 const store = configureStore({
     reducer  : {
@@ -13,7 +14,8 @@ const store = configureStore({
         category: categoryReducer,
         brand: brandReducer,
         cart: CartReducer,
-        auth: AuthReducer
+        auth: AuthReducer,
+        checkout: CheckoutReducer
     }
 })
 

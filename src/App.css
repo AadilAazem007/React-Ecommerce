@@ -52,3 +52,42 @@ html, body{
 .productCard img{
     width:50%;
 }
+
+.cartPage{
+    width:15%;
+    border:1px solid;
+}
+
+.cartPage img{
+    width:50%;
+    border-radius: 10%;
+}
+
+.cartPage .cardData{
+    border-bottom: 2px solid;
+}
+
+.cartAddress{
+    width:20%;
+    height:300px;
+    border:1px solid;
+}
+
+.cartAddress .addressOne{
+    height:50%;
+    border-bottom: 1px solid;
+}
+
+.addressOne textarea {
+    width: 80%;
+    height: 80px;
+}
+
+.cartAddress .addressTwo{
+    height:50%;
+}
+
+.addressTwo textarea {
+    width: 80%;
+    height: 80px;
+}

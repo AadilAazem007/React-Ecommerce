@@ -35,7 +35,7 @@ function SingleProduct()
                     <p>Price :- {product.price}</p>
                     <br />
                     <h3> Rating :- {product.rating}</h3>
-                    <h3> <button onClick={()=>addToCart({ itemId:product.id, userId: user, title: product.title, thumbnail: product.thumbnail, price: product.price, rating: product.rating, status: 'pending'  })}> Add To Cart </button> </h3>
+                    <h3> <button onClick={()=>addToCart({ itemId:product.id, userId: user, title: product.title, thumbnail: product.thumbnail, price: product.price, rating: product.rating, status: 'pending', quantity: 1  })}> Add To Cart </button> </h3>
                 </>
             ) : (
                 <p>Loading...</p> // Display a loading message while data is being fetched
