@@ -6,6 +6,7 @@ import brandReducer from '../features/brand/brandSlice'
 import CartReducer from '../features/cart/cartSlice'
 import AuthReducer from '../features/auth/authSlice'
 import CheckoutReducer from '../features/checkout/checkOutSlice'
+import OrderReducer from '../features/order/orderSlice'
 
 const store = configureStore({
     reducer  : {
@@ -15,7 +16,8 @@ const store = configureStore({
         brand: brandReducer,
         cart: CartReducer,
         auth: AuthReducer,
-        checkout: CheckoutReducer
+        checkout: CheckoutReducer,
+        Order: OrderReducer
     }
 })
 
